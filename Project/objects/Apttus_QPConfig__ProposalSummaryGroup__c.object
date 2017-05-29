@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <fields>
+        <fullName>APTS_Ext_GM__c</fullName>
+        <description>Net Sales Price - Cost times Quantity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Net Sales Price - Cost times Quantity</inlineHelpText>
+        <label>Extended Gross Margin</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_GMarginP__c</fullName>
+        <description>new formula will be &quot;IF((APTS_Total_Net_Sales_Price_Having_cost__c == 0), 0, (APTS_Gross_Margin__c / APTS_Total_Net_Sales_Price_Having_cost__c))&quot;</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISNULL(APTS_Total_Net_Sales_Price__c),APTS_Total_Net_Sales_Price__c=0),
+1,
+APTS_Gross_Margin__c /  APTS_Total_Net_Sales_Price__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Margin %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Net_Adjustment_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <formula>Apttus_QPConfig__NetAdjustmentPercent__c * -1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Total_List_Price__c</fullName>
+        <description>The summary of the Total List Price from the cart summary group object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The summary of the Total List Price from the cart line items.</inlineHelpText>
+        <label>Total List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>APTS_Total_Net_Sales_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Net Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__AdjustmentType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The price adjustment type</description>
+        <externalId>false</externalId>
+        <label>Adjustment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>% Discount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discount Amount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>% Markup</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Markup Amount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Price Override</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+</CustomObject>
